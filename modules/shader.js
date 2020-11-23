@@ -1,5 +1,5 @@
 var cubeRotation = 0.0;
-function initBuffers(gl, position, color, indice){
+let initBuffers = function(gl, position, color, indice){
    const positionBuffer = gl.createBuffer();
    gl.bindBuffer(gl.ARRAY_BUFFER, positionBuffer);
    const positions = position;
@@ -37,7 +37,7 @@ function initBuffers(gl, position, color, indice){
    };
 }
 
-function drawScene(gl, programInfo, buffers, deltaTime){
+let drawScene = function(gl, programInfo, buffers, deltaTime){
     gl.clearColor(0.0, 0.0, 0.0, 1.0);
     gl.clearDepth(1.0);
     gl.enable(gl.DEPTH_TEST);
@@ -60,16 +60,16 @@ function drawScene(gl, programInfo, buffers, deltaTime){
 
     mat4.translate(modelViewMatrix,
                     modelViewMatrix,
-										[-0.0, 0.0, -6.0]);
+					[-0.0, 0.0, -6.0]);
 										
 		mat4.rotate(modelViewMatrix,
-								modelViewMatrix,
-								cubeRotation,
+					modelViewMatrix,
+					cubeRotation,
 								[0,1,1]);
 		mat4.rotate(modelViewMatrix,
-								modelViewMatrix,
-								cubeRotation * .7,
-								[0, 1, 0]);
+					modelViewMatrix,
+					cubeRotation * .7,
+					[0, 1, 0]);
 
     {
         const numComponents = 3;

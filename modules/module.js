@@ -29,7 +29,7 @@ let GLInstance = function(canvasId){
     }
     return gl;
 }
-function initShaderProgram(gl, vsSource, fsSource){
+let initShaderProgram = function(gl, vsSource, fsSource){
         const vertexShader = loadShader(gl, gl.VERTEX_SHADER, vsSource);
         const fragmentShader = loadShader(gl, gl.FRAGMENT_SHADER, fsSource);
 
@@ -45,7 +45,7 @@ function initShaderProgram(gl, vsSource, fsSource){
 
         return shaderProgram;
 }
-function loadShader(gl, type, source){
+let loadShader = function(gl, type, source){
         const shader = gl.createShader(type);
 
         gl.shaderSource(shader, source);
